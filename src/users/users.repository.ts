@@ -5,7 +5,6 @@ import { User } from './entity/user';
 import { ERR_UNEXPECTED_ERROR } from '../app/constants';
 
 export class UsersRepository extends EventEmitter {
-
 	private readonly users: User[] = [];
 
 	private async requestMasterForData(obj): Promise<any> {

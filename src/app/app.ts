@@ -11,12 +11,10 @@ const args = parseArgs();
 export const app = http.createServer(routes);
 
 export const bootstrap = () => {
-
 	if (args['cluster']) {
-
-		const numCPUs = os.cpus().length;
-
 		if (cluster.isPrimary) {
+			const numCPUs = os.cpus().length;
+
 			console.log(`Primary ${process.pid} is running, wait for workers...`);
 
 			for (let i = 0; i < numCPUs; i++) {
@@ -33,12 +31,13 @@ export const bootstrap = () => {
 					worker.send({ cmd: message.cmd, data });
 				}
 			});
-
 		} else {
 			// Workers can share any TCP connection
 			// In this case it is an HTTP server
 			app.listen(PORT, () => {
-				console.log(`Worker ${process.pid} server running at http://localhost:${PORT}/`);
+				console.log(
+					`Worker ${process.pid} server running at http://localhost:${PORT}/`,
+				);
 			});
 
 			process.on('message', (message) => {
