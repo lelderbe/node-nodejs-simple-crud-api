@@ -1,0 +1,38 @@
+{
+	"name": "nodejs-simple-crud-api",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start:dev": "nodemon",
+		"start:prod": "tsc && node ./dist/index.js",
+		"start:multi": "tsc && node ./dist/index.js --cluster=enable",
+		"test": "jest --silent --verbose --config ./test/jest-e2e.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lelderbe/node-nodejs-simple-crud-api.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/lelderbe/node-nodejs-simple-crud-api/issues"
+	},
+	"homepage": "https://github.com/lelderbe/node-nodejs-simple-crud-api#readme",
+	"dependencies": {
+		"dotenv": "^16.0.1",
+		"uuid": "^8.3.2"
+	},
+	"devDependencies": {
+		"@types/jest": "^28.1.2",
+		"@types/supertest": "^2.0.12",
+		"@types/uuid": "^8.3.4",
+		"jest": "^28.1.1",
+		"nodemon": "^2.0.16",
+		"supertest": "^6.2.3",
+		"ts-jest": "^28.0.5",
+		"ts-node": "^10.8.1",
+		"typescript": "^4.7.3"
+	}
+}
